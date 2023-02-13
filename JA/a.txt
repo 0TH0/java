@@ -1,0 +1,50 @@
+// 入力管理クラスの作成
+//import java.io.BufferedReader;
+//import java.io.InputStreamReader;
+//import java.io.IOException;
+
+public class Ex03 {
+    //main関数は必要ありません！！
+    
+    //コンソールから文字列を取得する
+    public static String getString(String str) {
+        String returnValue = null;
+        //入力ガイドの表示
+        System.out.print("[" + str + "]>");
+        try {
+            // 文字列の取得先を標準入力に設定
+            BufferedReader br = 
+                new BufferedReader(
+                    new InputStreamReader(System.in));
+            // 文字列を取得
+            returnValue = br.readLine();
+        } catch( IOException e ) {
+            //try{～}の中で例外が発生した場合に実行される
+            //エラーの内容を出力
+            e.printStackTrace();
+            //エラー時は空の文字列を返すよう設定
+            returnValue = null;
+        }
+        return returnValue;
+    }
+    
+    // 整数を取得する
+    public static int getInt( ) {
+        //自クラスの文字列取得関数で入力データを取得
+        String intValue = getString ( "int" );
+        int returnValue = 0;
+
+        if ( intValue != null ) {
+            try {
+                returnValue = Integer.parseInt(intValue);
+            } catch ( Exception e ) {
+                returnValue = 0;
+            }
+        }
+        return returnValue;
+    }
+    
+      public static void main(String[] args)
+      {
+      }
+}
